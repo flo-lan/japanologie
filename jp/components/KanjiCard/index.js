@@ -93,7 +93,7 @@ class KanjiCard extends React.Component {
   }
   
   render() {
-    const { handleAnswer, curQuestion, curKanji } = this.props;
+    const { curQuestion, curKanji } = this.props;
     const { showAnswer } = this.state;
 
     return (
@@ -102,7 +102,7 @@ class KanjiCard extends React.Component {
           <Text style={styles.questionCounter}>
             {`${curQuestion} / ${totalQuestions}`}
           </Text>
-          <Text style={styles.kanji}>
+          <Text selectable style={styles.kanji}>
             {curKanji.symbol}
           </Text>
           { showAnswer && 
@@ -111,7 +111,7 @@ class KanjiCard extends React.Component {
               <Text style={styles.headline}>
                 Radikal
               </Text>
-              <Text style={styles.text}>
+              <Text selectable style={styles.text}>
                 {curKanji.radical}
               </Text>
               <Text style={styles.headline}>
