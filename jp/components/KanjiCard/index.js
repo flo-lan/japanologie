@@ -140,31 +140,31 @@ class KanjiCard extends React.Component {
           <View style={styles.pointsContainer}>
             <TouchableOpacity
               activeOpacity={.3} 
-              style={styles.pointButton}
+              style={[styles.pointButton, styles.point0Button]}
               onPress={() => this.handleAnswer(0)}
             >
-            <Text style={styles.buttonText}>0P</Text>
+              <Text style={styles.buttonText}>0P</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={.3} 
-              style={[styles.pointButton, styles.pointButtonInside]}
+              style={[styles.pointButton, styles.point1Button]}
               onPress={() => this.handleAnswer(1)}
             >
-            <Text style={styles.buttonText}>1P</Text>
+              <Text style={styles.buttonText}>1P</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={.3} 
-              style={[styles.pointButton, styles.pointButtonInside]}
+              style={[styles.pointButton, styles.point2Button]}
               onPress={() => this.handleAnswer(2)}
             >
-            <Text style={styles.buttonText}>2P</Text>
+             <Text style={styles.buttonText}>2P</Text>
             </TouchableOpacity>
             <TouchableOpacity
-            activeOpacity={.3} 
-            style={styles.pointButton}
-            onPress={() => this.handleAnswer(3)}
+              activeOpacity={.3} 
+              style={[styles.pointButton, styles.point3Button]}
+              onPress={() => this.handleAnswer(3)}
             >
-            <Text style={styles.buttonText}>3P</Text>
+              <Text style={styles.buttonText}>3P</Text>
             </TouchableOpacity>
         </View>
         }

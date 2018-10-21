@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "jp",
-    "description": "A very interesting project.",
+    "name": "Japanologie",
+    "description": "Japanologie Lerntools",
     "slug": "jp",
     "privacy": "public",
     "sdkVersion": "30.0.0",
@@ -22,6 +22,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.flo_lan.japanologie"
     }
   }
 }

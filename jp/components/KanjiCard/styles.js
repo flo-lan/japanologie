@@ -36,7 +36,7 @@ export default styles = StyleSheet.create({
   },
   showButton: {
     backgroundColor: '#808080',
-    padding: 12,
+    padding: 16,
   },
   pointsContainer: {
     flexDirection: 'row',
@@ -44,13 +44,19 @@ export default styles = StyleSheet.create({
   },
   pointButton: {
     flex:1,
-    backgroundColor: '#808080',
-    padding: 12,
-    borderColor: '#000000',
+    padding: 16,
   },
-  pointButtonInside: {
-    borderRightWidth: StyleSheet.hairlineWidth,
-    borderLeftWidth: StyleSheet.hairlineWidth,
+  point0Button: {
+    backgroundColor: '#ce3c3e',
+  },
+  point1Button: {
+    backgroundColor: '#FF8731',
+  },
+  point2Button: {
+    backgroundColor: '#278479',
+  },
+  point3Button: {
+    backgroundColor: '#4dad4a',
   },
   buttonText: {
     textAlign: 'center',
