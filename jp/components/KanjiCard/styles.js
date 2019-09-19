@@ -30,6 +30,9 @@ export default styles = StyleSheet.create({
   text: {
     textAlign: 'center',
   },
+  comment: {
+    color: '#A9A9A9',
+  },
   readingContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

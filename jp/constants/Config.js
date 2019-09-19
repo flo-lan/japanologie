@@ -27,21 +27,21 @@ const testTheorie3 = {
 }
 
 const testTheorie4 = {
-  key: 2,
-  name: 'Theorie 2',
+  key: 4,
+  name: 'Theorie 4',
   kanjiFrom: 1101,
   kanjiTo: 1500,
 }
 
 const testTheorie5 = {
-  key: 2,
-  name: 'Theorie 2',
+  key: 5,
+  name: 'Theorie 5',
   kanjiFrom: 1501,
   kanjiTo: 2137,
 }
 
 const testAll = {
-  key: 2,
+  key: 6,
   name: 'Alle Kanji',
   kanjiFrom: 1,
   kanjiTo: 2137,

@@ -82,7 +82,7 @@ class KanjiCard extends React.Component {
     if (meaning && meaning !== ' ') {
       return (
         <View>
-          <Text style={styles.text}>
+          <Text style={[styles.text, styles.comment]}>
             {`(${meaning})`}
           </Text>
          </View>
