@@ -16,14 +16,20 @@
     "@expo/samples": "2.1.1",
     "expo": "^31.0.0",
     "lodash": "^4.17.11",
+    "mem": "4.0.0",
     "native-base": "^2.8.1",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
+    "react-native-easy-toast": "^1.2.0",
     "react-navigation": "^2.16.0"
   },
   "devDependencies": {
-    "eslint": "^5.7.0",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-react-native": "^3.5.0",
     "jest-expo": "30.0.0"
   }
