@@ -5,10 +5,12 @@ import { createStackNavigator } from 'react-navigation';
 import TabBarIcon from '../components/TabBarIcon';
 import KanjiScreen from '../screens/KanjiScreen';
 import QuizScreen from '../screens/QuizScreen';
+import KanjiOverviewScreen from '../screens/KanjiOverviewScreen';
 
 export default KanjiStack = createStackNavigator({
   Kanji: KanjiScreen,
   Quiz: QuizScreen,
+  KanjiOverview: KanjiOverviewScreen,
 });
 
 KanjiStack.navigationOptions = {

@@ -17,6 +17,12 @@ class KanjiScreen extends React.Component {
     super(props);
 
     this.handleQuizStart = this.handleQuizStart.bind(this);
+    this.handleScreenSwitchKanjiOverview = this.handleScreenSwitchKanjiOverview.bind(this);
+  }
+
+  handleScreenSwitchKanjiOverview(name, kanjiFrom, kanjiTo) {
+    const { navigate } = this.props.navigation;
+    navigate('KanjiOverview', {title: name, kanjiFrom: kanjiFrom, kanjiTo: kanjiTo});    
   }
   
   handleQuizStart(name, kanjiFrom, kanjiTo) {
@@ -29,7 +35,8 @@ class KanjiScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           {testList.map(element => 
-            <TestListEntry {...element} handleQuizStart={this.handleQuizStart}>
+            <TestListEntry {...element} handleQuizStart={this.handleQuizStart}
+              handleScreenSwitchKanjiOverview={this.handleScreenSwitchKanjiOverview}>
             </TestListEntry>
           )}
         </ScrollView>

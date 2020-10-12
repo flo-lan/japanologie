@@ -14,11 +14,17 @@ class TestListEntry extends React.Component {
     super(props);
 
     this.handleStart = this.handleStart.bind(this);
+    this.handleStudy = this.handleStudy.bind(this);
   }
 
   handleStart() {
     const { name, handleQuizStart, kanjiFrom, kanjiTo } = this.props;
     handleQuizStart(name, kanjiFrom, kanjiTo);
+  }
+
+  handleStudy() {
+    const { name, kanjiFrom, kanjiTo, handleScreenSwitchKanjiOverview } = this.props;
+    handleScreenSwitchKanjiOverview(name, kanjiFrom, kanjiTo);
   }
 
   render() {
@@ -30,13 +36,22 @@ class TestListEntry extends React.Component {
           <Text style={styles.headerTitle}>{name}</Text>
           <Text style={styles.headerDescription}>{`${kanjiFrom} - ${kanjiTo}`}</Text>
         </View>
-        <TouchableOpacity
-          activeOpacity={.3} 
-          style={styles.startButton}
-          onPress={this.handleStart}
-        >
-          <Text style={styles.startButtonText}>START</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            activeOpacity={.3} 
+            style={styles.startButton}
+            onPress={this.handleStart}
+          >
+            <Text style={styles.startButtonText}>START</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={.3} 
+            style={styles.studyButton}
+            onPress={this.handleStudy}
+          >
+            <Text style={styles.studyButtonText}>STUDY</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -47,6 +62,7 @@ TestListEntry.propTypes = {
   kanjiFrom: PropTypes.number.isRequired,
   kanjiTo: PropTypes.number.isRequired,
   handleQuizStart: PropTypes.func.isRequired,
+  handleScreenSwitchKanjiOverview: PropTypes.func.isRequired,
 }
 
 export default TestListEntry;
