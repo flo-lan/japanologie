@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, ScrollView, Text, Button } from 'react-native';
+import { ActivityIndicator, ScrollView } from 'react-native';
 import { Container, Header, Content, Tab, Tabs, ScrollableTab } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 
 import KanjiBlock from '../KanjiBlock';
-import kanjiList from '../../data/kanjiList';
+import kanjiList from '../../data/kanjiListStripped';
 
 import styles from './styles';
 
@@ -27,6 +27,7 @@ class KanjiOverview extends React.Component {
 
   componentDidMount() {
     const { kanjiFrom, kanjiTo } = this.props;
+
     const relevantKanji = kanjiList.slice(kanjiFrom - 1, kanjiTo);
     this.setState({ relevantKanji });
   }
@@ -85,13 +86,6 @@ class KanjiOverview extends React.Component {
     });
 
     return (
-      // <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      //   <Grid>
-      //     {kanjiRows.map((kanjiRow, i) => 
-      //       this.renderRow(kanjiRow)
-      //     )}
-      //   </Grid>
-      // </ScrollView>
       <Container>
         <Tabs renderTabBar={()=> <ScrollableTab />}>
           {kanjiTabs.map((kanjiTab, i) => 

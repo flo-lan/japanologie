@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
+import kanjiList from '../../data/kanjiList';
 
 import styles from './styles';
 
@@ -97,11 +98,11 @@ class KanjiBlock extends React.PureComponent {
               {kanji.symbol}
             </Text>
             <Text style={styles.text}>
-              {kanji.bedeutung}
+              {kanjiList[kanji.id].bedeutung}
             </Text>
             <View style={styles.readingContainer}>
-              {this.renderKUNReadings(kanji)}
-              {this.renderONReadings(kanji)}
+              {this.renderKUNReadings(kanjiList[kanji.id - 1])}
+              {this.renderONReadings(kanjiList[kanji.id - 1])}
             </View>
           </DialogContent>
         </Dialog>
