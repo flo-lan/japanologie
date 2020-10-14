@@ -98,7 +98,7 @@ class KanjiBlock extends React.PureComponent {
               {kanji.symbol}
             </Text>
             <Text style={styles.text}>
-              {kanjiList[kanji.id].bedeutung}
+              {kanjiList[kanji.id - 1].bedeutung}
             </Text>
             <View style={styles.readingContainer}>
               {this.renderKUNReadings(kanjiList[kanji.id - 1])}
