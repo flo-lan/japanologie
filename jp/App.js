@@ -1,6 +1,8 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Font, Icon } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
+import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
 import AppNavigator from './navigation/AppNavigator';
 
 export default class App extends React.Component {
@@ -31,7 +33,7 @@ export default class App extends React.Component {
     return Promise.all([
       Font.loadAsync({
         // This is the font that we are using for our tab bar
-        ...Icon.Ionicons.font,
+        ...Ionicons.font,
       }),
     ]);
   };
