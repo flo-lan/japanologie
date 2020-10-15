@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native';
-import Platform from 'Platform';
+import { StyleSheet, Platform } from 'react-native';
 
 export default styles = StyleSheet.create({
   listEntry: {

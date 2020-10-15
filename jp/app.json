@@ -4,7 +4,6 @@
     "description": "Japanologie Lerntools",
     "slug": "jp",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
       "android"
