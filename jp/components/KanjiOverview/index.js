@@ -21,10 +21,6 @@ const TEXT_ACTION_SHOW_READING = "Show Reading";
 const TEXT_ACTION_HIDE_MEANING = "Hide Meaning";
 const TEXT_ACTION_HIDE_READING = "Hide Reading";
 
-const ACTIONS = [
-
-];
-
 class KanjiOverview extends React.Component {
   constructor(props) {
     super(props);
@@ -36,19 +32,19 @@ class KanjiOverview extends React.Component {
       relevantKanji: [],
       cols: 5,
       filter: {
-        meaning: true,
-        reading: true,
+        meaning: false,
+        reading: false,
       },
       actions: [
         {
-          text: TEXT_ACTION_SHOW_MEANING,
-          icon: iconFilter,
+          text: TEXT_ACTION_HIDE_MEANING,
+          icon: iconFilterRemove,
           name: FILTER_MEANING,
           position: 1,
         },
         {
-          text: TEXT_ACTION_SHOW_READING,
-          icon: iconFilter,
+          text: TEXT_ACTION_HIDE_READING,
+          icon: iconFilterRemove,
           name: FILTER_READING,
           position: 2,
         },
