@@ -3,13 +3,27 @@ import PropTypes from 'prop-types';
 import { ActivityIndicator, ScrollView } from 'react-native';
 import { Container, Header, Content, Tab, Tabs, ScrollableTab } from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
+import { FloatingAction } from "react-native-floating-action";
 
 import KanjiBlock from '../KanjiBlock';
 import kanjiList from '../../data/kanjiListStripped';
 
 import styles from './styles';
+import iconFilterRemove from '../../assets/images/filter-remove.png';
+import iconFilter from '../../assets/images/filter-line.png';
 
 const KANJI_PER_TAB = 100;
+
+const FILTER_MEANING = "filter_meaning";
+const FILTER_READING = "filter_reading";
+const TEXT_ACTION_SHOW_MEANING = "Show Meaning";
+const TEXT_ACTION_SHOW_READING = "Show Reading";
+const TEXT_ACTION_HIDE_MEANING = "Hide Meaning";
+const TEXT_ACTION_HIDE_READING = "Hide Reading";
+
+const ACTIONS = [
+
+];
 
 class KanjiOverview extends React.Component {
   constructor(props) {
@@ -17,11 +31,28 @@ class KanjiOverview extends React.Component {
 
     this.renderRow = this.renderRow.bind(this);
     this.renderTab = this.renderTab.bind(this);
+    this.handleFilterPressed = this.handleFilterPressed.bind(this);
     this.state = {
       relevantKanji: [],
       cols: 5,
-      activeTab: 0,
-      initialTab: 0,
+      filter: {
+        meaning: true,
+        reading: true,
+      },
+      actions: [
+        {
+          text: TEXT_ACTION_SHOW_MEANING,
+          icon: iconFilter,
+          name: FILTER_MEANING,
+          position: 1,
+        },
+        {
+          text: TEXT_ACTION_SHOW_READING,
+          icon: iconFilter,
+          name: FILTER_READING,
+          position: 2,
+        },
+      ],
     };
   }
 
@@ -32,15 +63,32 @@ class KanjiOverview extends React.Component {
     this.setState({ relevantKanji });
   }
 
-  renderRow(kanjiRow) {
+  handleFilterPressed(name) {
+    const { filter, actions } = this.state;
+    if (name === FILTER_MEANING) {
+      const show = filter.meaning;
+      filter.meaning = !filter.meaning;
+      actions[0].text = show ? TEXT_ACTION_HIDE_MEANING : TEXT_ACTION_SHOW_MEANING;
+      actions[0].icon = show ? iconFilterRemove : iconFilter;
+    } else if (name === FILTER_READING) {
+      const show = filter.reading;
+      filter.reading = !filter.reading;
+      actions[1].text = show ? TEXT_ACTION_HIDE_READING : TEXT_ACTION_SHOW_READING;
+      actions[1].icon = show ? iconFilterRemove : iconFilter;
+    }
+
+    this.setState({ filter, actions });
+  }
+
+  renderRow(kanjiRow, row) {
+    const { filter } = this.state;
     return (
-      <Row>
-        {kanjiRow.map((kanji, i) => (
-          <Col style={styles.blockContainer}>
-            <KanjiBlock kanji={kanji} />
+      <Row key={`row-${row}`}>
+        {kanjiRow.map((kanji, col) => (
+          <Col key={`col-${col}`} style={styles.blockContainer}>
+            <KanjiBlock key={kanji.id} kanji={kanji} filter={filter} />
           </Col>
-          )
-        )}
+        ))}
       </Row>
     );
   }
@@ -49,12 +97,13 @@ class KanjiOverview extends React.Component {
     const from = this.props.kanjiFrom + (i * KANJI_PER_TAB);
     const to = Math.min(this.props.kanjiTo, this.props.kanjiFrom + (i * KANJI_PER_TAB + KANJI_PER_TAB - 1));
     return (
-      <Tab heading={`${from}-${to}`}>
+      <Tab key={`tab-${i}`} heading={`${from}-${to}`}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <Grid>
-          {kanjiTab.map(kanjiRow => 
-            this.renderRow(kanjiRow)
-          )}
+            {kanjiTab.map((kanjiRow, row) =>
+              this.renderRow(kanjiRow, row)
+            )}
+            <Row key='row-extra' style={{ height: 56 + 30 }}/>
           </Grid>
         </ScrollView>
       </Tab>
@@ -62,7 +111,7 @@ class KanjiOverview extends React.Component {
   }
 
   render() {
-    const { relevantKanji, cols } = this.state;
+    const { relevantKanji, cols, actions } = this.state;
     let kanjiRows = [];
     relevantKanji.forEach((kanji, i) => {
       let row = Math.floor(i / cols);
@@ -92,6 +141,10 @@ class KanjiOverview extends React.Component {
             this.renderTab(kanjiTab, i)
           )}
         </Tabs>
+        <FloatingAction
+            actions={actions}
+            onPressItem={(name) => this.handleFilterPressed(name)}
+          />
       </Container>
     );
   }

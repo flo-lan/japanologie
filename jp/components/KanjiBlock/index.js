@@ -6,7 +6,7 @@ import kanjiList from '../../data/kanjiList';
 
 import styles from './styles';
 
-class KanjiBlock extends React.PureComponent {
+class KanjiBlock extends React.Component {
   constructor(props) {
     super(props);
 
@@ -64,7 +64,7 @@ class KanjiBlock extends React.PureComponent {
       </View>
     );
   }
-
+ 
   renderMeaning(meaning) {
     if (meaning && meaning !== ' ') {
       return (
@@ -80,15 +80,15 @@ class KanjiBlock extends React.PureComponent {
   }
 
   render() {
-    const { kanji } = this.props;
+    const { kanji, filter } = this.props;
     return (
       <TouchableOpacity style={styles.blockContainer} onPress={this.toggleDialogVisible}>
         <Text style={styles.textSymbol}> {kanji.symbol} </Text>
-        <Text style={styles.textMeaning}> {kanji.bedeutung} </Text>
-        <Text style={styles.textOn1}> {kanji.on1} </Text>
-        <Text style={styles.textKun1}> {kanji.kun1} </Text>
+        { !filter.meaning && <Text style={styles.textMeaning}> {kanji.meaning} </Text> }
+        { !filter.reading && <Text style={styles.textOn1}> {kanji.on1} </Text> }
+        { !filter.reading && <Text style={styles.textKun1}> {kanji.kun1} </Text> }
         <Dialog
-          width={0.5}
+          width={0.8}
           visible={this.state.dialogVisible}
           onTouchOutside={this.toggleDialogVisible}
           onHardwareBackPress={this.toggleDialogVisible}
