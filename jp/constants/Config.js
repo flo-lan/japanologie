@@ -22,32 +22,39 @@ const testTheorie2_2 = {
 const testTheorie3 = {
   key: 3,
   name: 'Theorie 3',
+  kanjiFrom: 1,
+  kanjiTo: 854,
+}
+
+const testTheorie3_2 = {
+  key: 4,
+  name: 'Theorie 3',
   kanjiFrom: 855,
   kanjiTo: 1100,
 }
 
 const testTheorie4 = {
-  key: 4,
+  key: 5,
   name: 'Theorie 4',
   kanjiFrom: 1101,
   kanjiTo: 1500,
 }
 
 const testTheorie5 = {
-  key: 5,
+  key: 6,
   name: 'Theorie 5',
   kanjiFrom: 1501,
   kanjiTo: 2137,
 }
 
 const testAll = {
-  key: 6,
+  key: 7,
   name: 'Alle Kanji',
   kanjiFrom: 1,
   kanjiTo: 2137,
 }
 
-const testList = [testTheorie1, testTheorie2, testTheorie2_2, testTheorie3, testTheorie4, testTheorie5, testAll];
+const testList = [testTheorie1, testTheorie2, testTheorie2_2, testTheorie3, testTheorie3_2, testTheorie4, testTheorie5, testAll];
 
 export default testList;
 

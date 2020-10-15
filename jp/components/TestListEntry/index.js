@@ -38,14 +38,14 @@ class TestListEntry extends React.Component {
         </View>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            activeOpacity={.3} 
+            activeOpacity={.3}
             style={styles.startButton}
             onPress={this.handleStart}
           >
             <Text style={styles.startButtonText}>START</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            activeOpacity={.3} 
+            activeOpacity={.3}
             style={styles.studyButton}
             onPress={this.handleStudy}
           >
@@ -55,6 +55,7 @@ class TestListEntry extends React.Component {
       </View>
     );
   }
+
 }
 
 TestListEntry.propTypes = {
@@ -63,6 +64,6 @@ TestListEntry.propTypes = {
   kanjiTo: PropTypes.number.isRequired,
   handleQuizStart: PropTypes.func.isRequired,
   handleScreenSwitchKanjiOverview: PropTypes.func.isRequired,
-}
+};
 
 export default TestListEntry;
